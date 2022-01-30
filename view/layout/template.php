@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/home.css">
     <title>Document</title>
     <style>
         html{
             scroll-behavior: smooth;
         }
         body{
-            background-color:#6C63FF;
+            background-color:#FFF;
         }
         .navbar{
             background-color:#6C63FF;
@@ -22,10 +23,10 @@
             height: 90vh;
         }
         .img-carousel1{
-            background: url('../assets/img/salutation.jpg') no-repeat center/cover;
+            background: url('assets/img/salutation.jpg') no-repeat center/cover;
         }
         .img-carousel2{
-            background: url('../assets/img/test.jpg') no-repeat center/cover;
+            background: url('assets/img/test.jpg') no-repeat center/cover;
         }
     </style>
 </head>
@@ -48,15 +49,15 @@
                 <div class="carousel-item active">
                     <div class="img-carousel img-carousel1"></div>
                     <div class="carousel-caption d-md-block">
-                        <h5>Se protéger...</h5>
-                        <p>C'est aussi protéger autrui.</p>
+                        <h5>Protect yourself...</h5>
+                        <p>It's also protecting others.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                 <div class="img-carousel img-carousel2"></div>
                     <div class="carousel-caption d-md-block">
-                    <h5>Vous avez un doute ?</h5>
-                        <p>Faite vous dépister.</p>
+                        <h5>Do you have any doubts?</h5>
+                        <p>Get tested.</p>
                     </div>
                 </div>
 
@@ -73,11 +74,11 @@
             </div>
         </div>
 
-    <div class="container mt-3 pt-3 overflow-hidden">
+    <div class="container mt-3 pt-3 overflow-hidden p-3">
     <?= $content;?>
     </div>
 
 </body>
-<script src="../assets/scripts/jquery.js"></script>
-<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/scripts/jquery.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </html>

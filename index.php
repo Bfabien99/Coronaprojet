@@ -1,25 +1,25 @@
 <?php
-   /* require 'class/covid19.php';
-    $covid = new covid19();
-    // $globals = $covid->globalCase();
-    $countries = $covid->countryCase('Egypt');
-    $countrie = $covid->countryVaccine('Egypt');
-    var_dump($countries);
-    echo ";
-    var_dump($countrie);
+require 'vendor/autoload.php';
+require 'class/covid19.php';
+   $router = new AltoRouter();
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php foreach ($globals as $global){
-        echo "Victime totale : ".$global['population']." </br>";
-    } ?>
-</body>
-</html> -->*/
-header("location:view/home.php");
+   //Route vers la page d'accueil
+   $router->map('GET','/ProjetSante/2/',function(){
+       require 'view/home.php'; 
+   });
+
+   $router->map('POST','/ProjetSante/2/',function(){
+    require 'view/home.php'; 
+});
+
+   $match = $router->match();
+
+   if( is_array($match) && is_callable( $match['target'] ) ) 
+   {
+	    call_user_func_array( $match['target'], $match['params'] ); 
+    } 
+    else 
+    {
+	// no route was matched
+	    header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+    }

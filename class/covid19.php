@@ -79,25 +79,18 @@
             $datas = curl_exec($curl);
             $results = [];
             $datas = json_decode($datas, true);
-            foreach ($datas as $data){
+            var_dump($datas);
+            
                 $results [] = [
-                    "country" =>$data['country'],
-                    "population" =>$data['population'],
-                    "confirmed" =>$data['confirmed'],
-                    "deaths" =>$data['deaths'],
-                    "updated" =>$data['updated']
+                    "country" =>$datas['All']['country'],
+                    "population" =>$datas['All']['population'],
+                    "confirmed" =>$datas['All']['confirmed'],
+                    "deaths" =>$datas['All']['deaths'],
+                    "updated" =>$datas['All']['updated']
                 ];
-            }
+            
 
             return $results;
-        }
-
-        public function continentCase(string $continent){
-
-        }
-
-        public function history(string $country){
-
         }
 
         public function civVaccine(){
@@ -154,14 +147,14 @@
             $datas = curl_exec($curl);
             $results = [];
             $datas = json_decode($datas, true);
-            foreach ($datas as $data){
+            
                 $results [] = [
-                    "country" =>$data['country'],
-                    "administered" =>$data['administered'],
-                    "vaccined" =>$data['people_vaccinated'],
-                    "updated" =>$data['updated']
+                    "country" =>$datas['All']['country'],
+                    "administered" =>$datas['All']['administered'],
+                    "vaccined" =>$datas['All']['people_vaccinated'],
+                    "updated" =>$datas['All']['updated']
                 ];
-            }
+            
 
             return $results;
         }
