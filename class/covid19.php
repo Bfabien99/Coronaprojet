@@ -79,8 +79,6 @@
             $datas = curl_exec($curl);
             $results = [];
             $datas = json_decode($datas, true);
-            var_dump($datas);
-            
                 $results [] = [
                     "country" =>$datas['All']['country'],
                     "population" =>$datas['All']['population'],

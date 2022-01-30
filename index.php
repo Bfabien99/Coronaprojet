@@ -4,11 +4,11 @@ require 'class/covid19.php';
    $router = new AltoRouter();
 
    //Route vers la page d'accueil
-   $router->map('GET','/ProjetSante/2/',function(){
+   $router->map('GET',$_SERVER['REQUEST_URI'],function(){
        require 'view/home.php'; 
    });
 
-   $router->map('POST','/ProjetSante/2/',function(){
+   $router->map('POST',$_SERVER['REQUEST_URI'],function(){
     require 'view/home.php'; 
 });
 
