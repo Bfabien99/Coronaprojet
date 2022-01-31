@@ -40,3 +40,30 @@
 #select:focus {
     outline: none;
 }
+
+.title{
+    font-size: 6vmin;
+}
+
+.text{
+    font-size: 3vmin;
+}
+
+.imgbox{
+    overflow: hidden;
+}
+
+.imgbox img:hover{
+    transition: 0.5s;
+    transform: scale(1.4);
+}
+
+.headerimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerimg p{
+    background-color: rgba(0, 0, 0, 0.76);
+}

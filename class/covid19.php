@@ -28,9 +28,13 @@
             $curl = curl_init(LINK."cases?country=".urlencode("Cote d'Ivoire"));
             curl_setopt_array($curl, [
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_TIMEOUT => 3
+                CURLOPT_TIMEOUT => 0
             ]);
             $datas = curl_exec($curl);
+            if ($datas === false || curl_getinfo($curl, CURLINFO_HTTP_CODE) !== 200) 
+            {
+                return null;
+            } 
             $results = [];
             $datas = json_decode($datas, true);
             foreach ($datas as $data){
@@ -74,9 +78,13 @@
             $curl = curl_init(LINK."cases?country=".urlencode($country));
             curl_setopt_array($curl, [
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_TIMEOUT => 3
+                CURLOPT_TIMEOUT => 0
             ]);
             $datas = curl_exec($curl);
+            if ($datas === false || curl_getinfo($curl, CURLINFO_HTTP_CODE) !== 200) 
+            {
+                return null;
+            } 
             $results = [];
             $datas = json_decode($datas, true);
                 $results [] = [
@@ -94,9 +102,13 @@
             $curl = curl_init(LINK."vaccines?country=".urlencode("Cote d'Ivoire"));
             curl_setopt_array($curl, [
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_TIMEOUT => 3
+                CURLOPT_TIMEOUT => 0
             ]);
             $datas = curl_exec($curl);
+            if ($datas === false || curl_getinfo($curl, CURLINFO_HTTP_CODE) !== 200) 
+            {
+                return null;
+            } 
             $results = [];
             $datas = json_decode($datas, true);
             foreach ($datas as $data){
@@ -139,9 +151,13 @@
             $curl = curl_init(LINK."vaccines?country=".$country);
             curl_setopt_array($curl, [
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_TIMEOUT => 3
+                CURLOPT_TIMEOUT => 0
             ]);
             $datas = curl_exec($curl);
+            if ($datas === false || curl_getinfo($curl, CURLINFO_HTTP_CODE) !== 200) 
+            {
+                return null;
+            } 
             $results = [];
             $datas = json_decode($datas, true);
             

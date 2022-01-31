@@ -1,6 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 require 'class/covid19.php';
+require 'class/news.php';
    $router = new AltoRouter();
 
    //Route vers la page d'accueil
