@@ -84,7 +84,6 @@
                     "population" =>$datas['All']['population'],
                     "confirmed" =>$datas['All']['confirmed'],
                     "deaths" =>$datas['All']['deaths'],
-                    "updated" =>$datas['All']['updated']
                 ];
             
 
