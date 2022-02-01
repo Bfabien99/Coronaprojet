@@ -43,7 +43,7 @@
                     "population" =>$data['population'],
                     "confirmed" =>$data['confirmed'],
                     "deaths" =>$data['deaths'],
-                    "updated" =>$data['updated']
+                    "updated" => mb_strimwidth($data['updated'],0,10)
                 ];
             }
 
@@ -88,8 +88,8 @@
             $results = [];
             $datas = json_decode($datas, true);
                 $results [] = [
-                    "country" =>$datas['All']['country'],
-                    "population" =>$datas['All']['population'],
+                    "country" =>$datas['All']['country'] ?? $country,
+                    "population" =>$datas['All']['population'] ?? 0,
                     "confirmed" =>$datas['All']['confirmed'],
                     "deaths" =>$datas['All']['deaths'],
                 ];
@@ -116,7 +116,7 @@
                     "country" =>$data['country'],
                     "administered" =>$data['administered'],
                     "vaccined" =>$data['people_vaccinated'],
-                    "updated" =>$data['updated']
+                    "updated" =>mb_strimwidth($data['updated'],0,10)
                 ];
             }
 
@@ -162,10 +162,10 @@
             $datas = json_decode($datas, true);
             
                 $results [] = [
-                    "country" =>$datas['All']['country'],
+                    "country" =>$datas['All']['country'] ?? $country,
                     "administered" =>$datas['All']['administered'],
                     "vaccined" =>$datas['All']['people_vaccinated'],
-                    "updated" =>$datas['All']['updated']
+                    "updated" =>mb_strimwidth($datas['All']['updated'],0,10)
                 ];
             
 

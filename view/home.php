@@ -11,7 +11,9 @@
     $showcountry = false;
     if (!empty($_POST['country'])) {
         $country = $covid->countryCase(($_POST['country']));
+        $vaccines = $covid->countryVaccine(($_POST['country']));
         Toempty($country);
+        Toempty($vaccines);
         $showcountry = true;
     }
 
@@ -26,6 +28,7 @@
        
     $lists = $covid->countryList();
     array_pop($lists);
+    
 
     $getNews=$news->getNews();
     array_splice($getNews,8,12);
@@ -99,7 +102,7 @@
                     <div class="group">
 
                         <h3 class="text-left font-weight-bolder">Population</h3>
-                        <h1 class="text-right font-weight-bolder"><?= number_format($data['population'],0,'.','.')  ?></h1>
+                        <h1 class="text-right font-weight-bolder"><?= ($data['population'] > 1) ? number_format($data['population'],0,'.','.') : "Unknown";  ?></h1>
 
                     </div>
 
@@ -135,8 +138,8 @@
 
                     <div class="group">
 
-                        <h3 class="text-left font-weight-bolder">Date<h3> 
-                        <h3 class="text-right font-weight-bolder"><?= $data['updated'] ?></h3>
+                        <h5 class="text-left font-weight-bolder">Last update<h5> 
+                        <h5 class="text-right font-weight-bolder text-primary"><?= $data['updated'] ?></h5>
 
                     </div>
 
@@ -189,11 +192,12 @@
     </div>
 
     <hr>
+
 <!---->
  <!--       COUNTRY SEARCH        -->
 <!---->
 
-    <div class="row p-5">
+    <div class="row p-2">
 
         <div class="col-12 col-md-6" id="search">
 
@@ -240,7 +244,7 @@
                         <div class="group">
 
                             <h3 class="text-left font-weight-bolder">Population</h3>
-                            <h1 class="text-right font-weight-bolder"><?= number_format($data['population'],0,'.','.')  ?></h1>
+                            <h1 class="text-right font-weight-bolder"><?= ($data['population'] > 1) ? number_format($data['population'],0,'.','.') : "Unknown";   ?></h1>
 
                         </div>
 
@@ -251,7 +255,37 @@
 
                         </div>
 
+
                     <?php endforeach; ?>
+
+                    <?php if($vaccines !== null) :?>
+
+                        <?php foreach($vaccines as $data):?>
+
+                            <div class="group">
+
+                                <h3 class="text-left font-weight-bolder">People vaccined</h3>
+                                <h1 class="navy text-right"><?= number_format($data['vaccined'],0,'.','.') ?></h1>
+
+                            </div>
+
+                            <div class="group">
+
+                                <h3 class="text-left font-weight-bolder">Administered</h3>
+                                <h1 class="navy text-right"><?= number_format($data['administered'],0,'.','.') ?></h1>
+
+                            </div>
+
+                            <div class="group">
+
+                                <h5 class="text-left font-weight-bolder">Last update<h5> 
+                                <h5 class="text-right font-weight-bolder text-primary"><?= $data['updated'] ?></h5>
+
+                            </div>
+
+                        <?php endforeach; ?>
+
+                    <?php endif; ?>
 
                 <?php endif; ?>
 
@@ -267,9 +301,9 @@
 
     <?php if($getNews !== null):?>
 
-        <div class="container-fluid about">
+        <div class="container-fluid about pt-5">
 
-            <h1 class="text-center">NEWS</h1>
+            <h1 class="text-center text-danger font-weight bolder">NEWS</h1>
             <hr>
 
             <div class="row">
@@ -301,7 +335,6 @@
         </div>
 
     <?php endif;?>
-
 
 <?php $content = ob_get_clean();?>
 <?php require 'layout/template.php'; ?>

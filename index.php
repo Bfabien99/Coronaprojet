@@ -10,8 +10,8 @@ require 'class/news.php';
    });
 
    $router->map('POST',$_SERVER['REQUEST_URI'],function(){
-    require 'view/home.php'; 
-});
+        require 'view/home.php'; 
+    });
 
    $match = $router->match();
 

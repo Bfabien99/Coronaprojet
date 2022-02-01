@@ -139,7 +139,7 @@
     </div>
     
     <footer class="mt-3 p5 bg-dark">
-        <div class="footer-copyright text-center py-3"><span class="text-white"> © 2020 Copyright: </span><span class="text-danger">NAN</span></div>
+        <div class="footer-copyright text-center py-3"><span class="text-white"> © 2022 Copyright: </span><span class="text-danger">NAN</span></div>
     </footer>
 </body>
 <script src="assets/scripts/jquery.js"></script>
